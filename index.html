@@ -54,6 +54,8 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 20px;
+    position: relative;
+    z-index: 3;
 }
 
 button {
@@ -71,8 +73,9 @@ button {
 }
 
 #no {
-    background: #aaa;
-    color: #fff;
+    pointer-events: auto;
+    position: relative;
+    z-index: 3;
 }
 
 /* Popup */
@@ -227,6 +230,7 @@ noBtn.addEventListener("click", () => {
     popup.style.display = "flex";
 });
 
+
 popupYes.addEventListener("click", showLove);
 
 // hearts
@@ -244,3 +248,4 @@ setInterval(() => {
 
 </body>
 </html>
+
