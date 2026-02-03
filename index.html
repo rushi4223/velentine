@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Akanksha 💖</title>
+<title>AKANKSHA 💖</title>
 
 <style>
 * { box-sizing: border-box; }
@@ -51,8 +51,9 @@ h1 {
 }
 
 .buttons {
-    position: relative;
-    height: 140px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 button {
@@ -72,9 +73,33 @@ button {
 #no {
     background: #aaa;
     color: #fff;
-    position: absolute;
-    left: 130px;
-    top: 65px;
+}
+
+/* Popup */
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.popup-box {
+    background: #fff;
+    padding: 24px 20px;
+    border-radius: 18px;
+    text-align: center;
+    width: 85%;
+    max-width: 320px;
+    animation: popIn 0.4s ease;
+}
+
+.popup-box p {
+    font-size: 16px;
+    margin-bottom: 18px;
+    color: #333;
 }
 
 /* Love screen */
@@ -100,15 +125,13 @@ button {
     margin-bottom: 16px;
 }
 
-/* Marathi text */
 .shayari {
     font-size: 16px;
     line-height: 1.9;
     color: #333;
-    margin-top: 10px;
 }
 
-/* Floating hearts */
+/* Hearts */
 .heart {
     position: fixed;
     bottom: -20px;
@@ -145,7 +168,7 @@ button {
     <div class="subtitle">Can I steal you for Valentine’s Day? 💘</div>
 
     <div class="buttons">
-        <button id="yes">YES ❤️</button>
+        <button id="yes">YES❤️</button>
         <button id="no">NO</button>
     </div>
 </div>
@@ -160,29 +183,30 @@ button {
         तुझ्या प्रत्येक नजरेत काहीतरी खास दिसतं.<br><br>
 
         शब्द कमी पडतात जेव्हा तू जवळ असतेस,<br>
-        तेव्हा फक्त एकच गोष्ट समजते —<br>
+        तेव्हा एकच गोष्ट कळते —<br>
         आयुष्य तुझ्यासोबतच सुंदर वाटतं. 💖
     </div>
-    <div class="love-sub">Your's Rushi</div>
+    <div class="love-sub">Your's RUSHI</div>
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+    <div class="popup-box">
+        <p>You cannot say NO to me 😌💖</p>
+        <button id="popupYes">YES 💖</button>
+    </div>
 </div>
 
 <script>
-const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+const popup = document.getElementById("popup");
+const popupYes = document.getElementById("popupYes");
 const questionBox = document.getElementById("questionBox");
 const loveBox = document.getElementById("loveBox");
 
-function moveNo() {
-    const x = Math.random() * (window.innerWidth - 120);
-    const y = Math.random() * (window.innerHeight - 120);
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-}
-
-noBtn.addEventListener("mouseover", moveNo);
-noBtn.addEventListener("touchstart", moveNo);
-
-yesBtn.addEventListener("click", () => {
+function showLove() {
+    popup.style.display = "none";
     questionBox.style.display = "none";
     loveBox.style.display = "block";
 
@@ -195,7 +219,15 @@ yesBtn.addEventListener("click", () => {
         document.body.appendChild(kiss);
         setTimeout(() => kiss.remove(), 1400);
     }
+}
+
+yesBtn.addEventListener("click", showLove);
+
+noBtn.addEventListener("click", () => {
+    popup.style.display = "flex";
 });
+
+popupYes.addEventListener("click", showLove);
 
 // hearts
 setInterval(() => {
@@ -212,4 +244,3 @@ setInterval(() => {
 
 </body>
 </html>
-
