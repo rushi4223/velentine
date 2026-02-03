@@ -10,134 +10,129 @@
 
 body {
     margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff6a88, #ffb199);
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Comic Sans MS', cursive;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, "Noto Sans Devanagari",
+                 Helvetica, Arial, sans-serif;
     overflow: hidden;
 }
 
 .container {
-    background: #fff;
-    padding: 32px 22px;
-    border-radius: 26px;
-    box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+    background: #ffffff;
+    padding: 28px 22px;
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
     width: 92%;
     max-width: 420px;
     text-align: center;
-    animation: popIn 1s ease;
+    animation: popIn 0.9s ease;
     z-index: 2;
 }
 
 @keyframes popIn {
-    0% { transform: scale(0); }
-    80% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 h1 {
-    color: #ff2f68;
-    font-size: 30px;
-    margin-bottom: 8px;
-    animation: pulse 1.6s infinite;
+    color: #e63956;
+    font-size: 28px;
+    margin-bottom: 6px;
 }
 
 .subtitle {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 26px;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.06); }
-    100% { transform: scale(1); }
+    font-size: 17px;
+    color: #555;
+    margin-bottom: 24px;
 }
 
 .buttons {
     position: relative;
-    height: 150px;
+    height: 140px;
 }
 
 button {
-    padding: 14px 30px;
-    font-size: 18px;
+    padding: 14px 28px;
+    font-size: 17px;
     border: none;
-    border-radius: 40px;
+    border-radius: 30px;
     cursor: pointer;
 }
 
 #yes {
-    background: linear-gradient(135deg, #ff416c, #ff4b2b);
-    color: white;
-    box-shadow: 0 10px 22px rgba(255,75,43,0.6);
+    background: #e63956;
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(230,57,86,0.45);
 }
 
 #no {
     background: #aaa;
-    color: white;
+    color: #fff;
     position: absolute;
-    left: 140px;
-    top: 70px;
+    left: 130px;
+    top: 65px;
 }
 
-/* LOVE SCREEN */
+/* Love screen */
 .love-screen {
     display: none;
-    animation: fadeIn 1.2s ease forwards;
+    animation: fadeIn 1s ease forwards;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.85); }
-    to { opacity: 1; transform: scale(1); }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .love-title {
-    font-size: 32px;
-    color: #ff2f68;
-    margin-bottom: 10px;
+    font-size: 30px;
+    color: #e63956;
+    margin-bottom: 8px;
 }
 
 .love-sub {
-    font-size: 20px;
+    font-size: 18px;
     color: #444;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
-/* SHAYARI */
+/* Marathi text */
 .shayari {
-    margin-top: 12px;
-    font-size: 17px;
-    line-height: 1.8;
-    color: #ff2f68;
+    font-size: 16px;
+    line-height: 1.9;
+    color: #333;
+    margin-top: 10px;
 }
 
-/* HEARTS */
+/* Floating hearts */
 .heart {
     position: fixed;
     bottom: -20px;
     animation: floatUp linear infinite;
     z-index: 1;
+    opacity: 0.6;
 }
 
 @keyframes floatUp {
-    0% { transform: translateY(0); opacity: 0; }
-    20% { opacity: 1; }
-    100% { transform: translateY(-110vh); opacity: 0; }
+    from { transform: translateY(0); opacity: 0; }
+    20% { opacity: 0.6; }
+    to { transform: translateY(-110vh); opacity: 0; }
 }
 
-/* KISS */
+/* Kiss */
 .kiss {
     position: fixed;
-    font-size: 34px;
-    animation: kiss 1.5s ease-out forwards;
+    font-size: 32px;
+    animation: kiss 1.4s ease-out forwards;
 }
 
 @keyframes kiss {
-    0% { transform: scale(0); opacity: 1; }
-    100% { transform: scale(2.2) rotate(20deg); opacity: 0; }
+    from { transform: scale(0); opacity: 1; }
+    to { transform: scale(2) rotate(15deg); opacity: 0; }
 }
 </style>
 </head>
@@ -146,29 +141,27 @@ button {
 
 <!-- QUESTION -->
 <div class="container" id="questionBox">
-    <h1>AKANKSHA 💕</h1>
-    <div class="subtitle">Will you be my Velentine?😘</div>
+    <h1>Akanksha 💕</h1>
+    <div class="subtitle">माझी व्हॅलेंटाईन होशील का?</div>
 
     <div class="buttons">
-        <button id="yes">YES💖</button>
-        <button id="no">NO💔</button>
+        <button id="yes">हो ❤️</button>
+        <button id="no">नाही</button>
     </div>
 </div>
 
 <!-- LOVE -->
 <div class="container love-screen" id="loveBox">
-    <div class="love-title">AKANKSHA ❤️</div>
-    <div class="love-sub">LOVE YOU😍</div>
+    <div class="love-title">Akanksha ❤️</div>
+    <div class="love-sub">तूच माझी व्हॅलेंटाईन आहेस</div>
 
     <div class="shayari">
-        तुझ्या हासण्यात माझं सगळं जग सापडलं आहे,<br>
-        तुझ्या एका नजरेतच माझं मन हरपलं आहे.<br><br>
+        तुझ्या शांत आवाजात माझं मन हरवतं,<br>
+        तुझ्या प्रत्येक नजरेत काहीतरी खास दिसतं.<br><br>
 
-        तू जवळ असलीस की वेळ थांबावी असं वाटतं,<br>
-        तुझ्यासोबत प्रत्येक क्षण खासच वाटतं.<br><br>
-
-        आयुष्य कितीही गुंतागुंतीचं असो,<br>
-        तुझा हात हातात असला की सगळं सोपं वाटतं. 💕
+        शब्द कमी पडतात जेव्हा तू जवळ असतेस,<br>
+        तेव्हा फक्त एकच गोष्ट समजते —<br>
+        आयुष्य तुझ्यासोबतच सुंदर वाटतं. 💖
     </div>
 </div>
 
@@ -179,8 +172,8 @@ const questionBox = document.getElementById("questionBox");
 const loveBox = document.getElementById("loveBox");
 
 function moveNo() {
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 100);
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 120);
     noBtn.style.left = x + "px";
     noBtn.style.top = y + "px";
 }
@@ -192,29 +185,28 @@ yesBtn.addEventListener("click", () => {
     questionBox.style.display = "none";
     loveBox.style.display = "block";
 
-    // Kiss burst 😘
-    for (let i = 0; i < 14; i++) {
+    for (let i = 0; i < 10; i++) {
         const kiss = document.createElement("div");
         kiss.className = "kiss";
         kiss.innerHTML = "💋";
         kiss.style.left = Math.random() * 100 + "vw";
         kiss.style.top = Math.random() * 100 + "vh";
         document.body.appendChild(kiss);
-        setTimeout(() => kiss.remove(), 1500);
+        setTimeout(() => kiss.remove(), 1400);
     }
 });
 
-// Floating hearts ❤️
+// hearts
 setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
     heart.innerHTML = "❤️";
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 28 + 20 + "px";
+    heart.style.fontSize = Math.random() * 22 + 18 + "px";
     heart.style.animationDuration = Math.random() * 3 + 4 + "s";
     document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 7000);
-}, 300);
+    setTimeout(() => heart.remove(), 6500);
+}, 450);
 </script>
 
 </body>
